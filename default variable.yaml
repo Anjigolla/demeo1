@@ -1,4 +1,4 @@
-name: print all github context
+name: print all github-action context
 
 on:
   workflow_dispatch:
