@@ -1,4 +1,4 @@
-name: Hello World Workflow
+name:  New Hello World Workflow
 # Trigger workflow on push or manual dispatch
 on:
   push:
