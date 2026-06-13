@@ -1,0 +1,22 @@
+name: manual variable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate output
+        id: build
+        run: |
+          echo "version=1.0.0" >> $GITHUB_OUTPUT
+
+      - name: Print steps context
+        run: |
+          echo '${{ toJson(steps) }}'
+
+      - name: Access specific output
+        run: |
+          echo "Version: ${{ steps.build.outputs.version }}"
