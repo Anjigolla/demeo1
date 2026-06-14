@@ -1,0 +1,41 @@
+name: Parallel Jobs Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 1
+        run: |
+          echo "Job 1 started"
+          sleep 20
+          echo "Hello from Job 1"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 2
+        run: |
+          echo "Job 2 started"
+          sleep 20
+          echo "Hello from Job 2"
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 3
+        run: |
+          echo "Job 3 started"
+          sleep 20
+          echo "Hello from Job 3"
+
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 4
+        run: |
+          echo "Job 4 started"
+          sleep 20
+          echo "Hello from Job 4"
