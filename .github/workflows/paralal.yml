@@ -1,0 +1,29 @@
+name: Parallel Jobs Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Build completed"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Tests completed"
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Scan completed"
+
+  deploy:
+    needs:
+      - build
+      - test
+      - security-scan
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying..."
