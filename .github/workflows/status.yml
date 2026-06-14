@@ -1,0 +1,31 @@
+name: Success Failure Cancel Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: |
+          echo "Building..."
+          # Uncomment to test failure
+          # exit 1
+
+      - name: Success Step
+        if: success()
+        run: echo "Build succeeded ✅"
+
+      - name: Failure Step
+        if: failure()
+        run: echo "Build failed ❌"
+
+      - name: Cancelled Step
+        if: cancelled()
+        run: echo "Workflow was cancelled ⛔"
+
+      - name: Always Run
+        if: always()
+        run: echo "Cleanup 🧹"
