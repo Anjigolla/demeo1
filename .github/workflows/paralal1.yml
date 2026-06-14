@@ -23,7 +23,7 @@ jobs:
           echo "Hello from Job 2"
 
   job3:
-    needs: job1
+    needs: job4
     runs-on: ubuntu-latest
     steps:
       - name: Job 3
@@ -33,7 +33,7 @@ jobs:
           echo "Hello from Job 3"
 
   job4:
-    needs: job3
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Job 4
