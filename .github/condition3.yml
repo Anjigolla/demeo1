@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        options:
+          - dev
+          - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Dev
+        if: inputs.env == 'dev'
+        run: echo "Deploying to DEV"
+
+      - name: Deploy to Prod
+        if: inputs.env == 'prod'
+        run: echo "Deploying to PROD"
