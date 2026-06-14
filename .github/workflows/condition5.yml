@@ -1,0 +1,23 @@
+name: Simple Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print branch
+        run: echo "Current branch is ${{ github.ref_name }}"
+
+      - name: Run only on develop
+        if: github.ref_name == 'develop'
+        run: echo "Deploying to DEV"
+
+      - name: Run only on main
+        if: github.ref_name == 'main'
+        run: echo "Deploying to PROD"
